@@ -1,7 +1,6 @@
-
 import { useState } from "react";
-import Header from './Components/Header';
-import Tasks from './Components/Tasks';
+import Header from "./Components/Header";
+import Tasks from "./Components/Tasks";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -24,13 +23,28 @@ function App() {
       text: "Prayer Time",
       day: "February 10th @ 16:00pm",
       reminder: false,
-    }
+    },
   ]);
+
+  // Delete Task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  //Toggle reminder
+
+  const toggleReminder = (id) => {
+    console.log("double click", id);
+  };
 
   return (
     <div className="container">
       <Header title="TasK Tracker" />
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+      ) : (
+        "No tasks to Show"
+      )}
     </div>
   );
 }

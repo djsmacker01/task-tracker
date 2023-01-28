@@ -18,15 +18,17 @@ const tasks = [
     text: "Prayer Time",
     day: "February 10th @ 16:00pm",
     reminder: false,
-  }
+  },
 ];
 
 const Tasks = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      {tasks.map((task) => (
+        <h3 key={task.id}>{task.text}</h3>
+      ))}
+    </>
+  );
+};
 
-export default Tasks
+export default Tasks;

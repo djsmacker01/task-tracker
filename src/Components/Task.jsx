@@ -14,7 +14,7 @@ const Task = ({ task, onDelete, onToggle }) => {
       <p>{task.day}</p>
       <div>
         <ul>
-          
+          <li></li>
         </ul>
       </div>
     </div>
